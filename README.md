@@ -1,1 +1,1 @@
-# WordCount-C 词频统计
+# WordCount-C++ 词频统计
