@@ -1,3 +1,0 @@
-﻿  WordCount.cpp
-d:\mygithub\personproject-c\031602634\src\wordcount\wordcount.cpp(122): warning C4715: “mycmpstruct”: 不是所有的控件路径都返回值
-  WordCount.vcxproj -> D:\mygithub\PersonProject-C\031602634\src\Debug\WordCount.exe
