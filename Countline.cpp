@@ -21,4 +21,5 @@ int Text::countline(ofstream *outfile)//统计行数
 
  cout << "lines:" << count_line << endl;
  *outfile << "lines:" << count_line << endl;//结果输入result.txeturn count_line;
+  return count_line;
 }
