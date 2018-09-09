@@ -1,0 +1,12 @@
+character: 50
+words: 10
+lines: 3
+<hello>: 2
+<123>: 1
+<hellop>: 1
+<hey>: 1
+<hi>: 1
+<lsasda>: 1
+<up>: 1
+<what>: 1
+<world>: 1
