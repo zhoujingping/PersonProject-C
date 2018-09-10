@@ -1,0 +1,6 @@
+characters:32
+words:3
+lines:3
+<aaadedf>:1
+<aabcdh>:1
+<ddws121>:1
