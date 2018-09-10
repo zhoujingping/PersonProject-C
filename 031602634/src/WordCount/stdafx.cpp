@@ -3,20 +3,6 @@
 w s;
 w str[20000];
 
-
-
-int countchar(FILE *f)
-{
-	int x = 0;
-	char ch;
-	while (!feof(f))
-	{
-		ch = getc(f);
-		if (ch >= 0 && ch <= 255) x++;
-	}
-	return x;
-}
-
 bool isnum(char c)
 {
 	if (c >= '0' && c <= '9') return true;
@@ -29,10 +15,48 @@ bool ischar(char c)
 	else return false;
 }
 
-int countword(FILE *f)
+int mycmpstruct(w a, w b)
+{
+	if (a.count != b.count) return a.count > b.count;
+	if (a.count = b.count)
+	{
+		string aa = a.word;
+		string bb = b.word;
+		return aa < bb;
+	}
+}
+
+myfile::myfile()
+{
+	chars = 0;
+	lines = 1;
+	words = 0;
+}
+
+void myfile::countchar(FILE *f)
 {
 	char ch;
-	int n = 0, flag = 1;
+	while (!feof(f))
+	{
+		ch = getc(f);
+		if (ch >= 0 && ch <= 255) chars++;
+	}
+}
+
+void myfile::countline(FILE *f)
+{
+	char ch;
+	while (!feof(f))											//统计行数
+	{
+		ch = getc(f);
+		if (ch == '\n') lines++;
+	}
+}
+
+void myfile::countword(FILE  *f)
+{
+	char ch;
+	int flag = 1;
 	int x;
 	int i, j;
 	while (!feof(f))											//读单词写入结构体，并统计单词个数
@@ -72,7 +96,7 @@ int countword(FILE *f)
 				continue;
 			}
 			s.word[k++] = '\0';
-			j = n;
+			j = words;
 			for (i = 0; i < j; i++)								//与结构体中比较，如果存在，则改单词次数+1
 			{
 				if (strcmp(s.word, str[i].word) == 0)
@@ -81,54 +105,36 @@ int countword(FILE *f)
 					break;
 				}
 			}
-			if (n == 0 || i == j)								//不存在将单词写入结构体中
+			if (words == 0 || i == j)							//不存在将单词写入结构体中
 			{
-				str[n++] = s;
+				str[words++] = s;
 			}
 		}
 	}
-	return n;
 }
 
-int countline(FILE *f)
+void myfile::px()
 {
-	char ch;
-	int liness = 1;
-	while (!feof(f))											//统计行数
-	{
-		ch = getc(f);
-		if (ch == '\n') liness++;
-	}
-	return liness;
+	sort(str, str + words, mycmpstruct);						//结构体排序，按出现次数从大到小排序
 }
 
-void countfrequency(int n)
-{
-	sort(str, str + n, mycmpstruct);							//结构体排序，按出现次数从大到小排序
-}
 
-int mycmpstruct(w a, w b)
-{
-	if (a.count != b.count) return a.count > b.count;
-	if (a.count = b.count)
-	{
-		string aa = a.word;
-		string bb = b.word;
-		return aa < bb;
-	}
-}
-
-void outputtxt(int x, int y,int n)
+void myfile::fileoutput()
 {
 	fstream file("result.txt", ios::out);						//先清空输出文本
 	fstream File("result.txt", ios::in | ios::out);
-	File << "characters: " << x << endl;
-	File << "lines: " << y << endl;
-	File << "words: " << n << endl;
-
+	File << "characters: " << chars << endl;
+	File << "lines: " << lines << endl;
+	File << "words: " << words << endl;
+	int n = words;
 	if (n > 10) n = 10;
 	for (int i = 0; i < n; i++)
 	{
 		File << str[i].word << ": " << str[i].count << endl;
 	}
+}
+
+myfile::~myfile()
+{
+
 }

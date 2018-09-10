@@ -16,8 +16,9 @@ namespace countchartest
 			char file[100] = "input.txt";
 			FILE *f;
 			fopen_s(&f, file, "r");
-			int x = countchar(f);
-			Assert::AreEqual(x,0);
+			myfile ff;
+			ff.countchar(f);
+			Assert::AreEqual(ff.getchars(),0);
 		}
 
 	};
@@ -35,8 +36,9 @@ namespace countlinetest
 			char file[100] = "input.txt";
 			FILE *f;
 			fopen_s(&f, file, "r");
-			int x = countline(f);
-			Assert::AreEqual(x, 2);
+			myfile ff;
+			ff.countline(f);
+			Assert::AreEqual(ff.getlines(), 3);
 		}
 
 	};
@@ -54,8 +56,9 @@ namespace countwordtest
 			char file[100] = "input.txt";
 			FILE *f;
 			fopen_s(&f, file, "r");
-			int x = countword(f);
-			Assert::AreEqual(x, 5);
+			myfile ff;
+			ff.countword(f);
+			Assert::AreEqual(ff.getwords(), 1);
 		}
 
 	};

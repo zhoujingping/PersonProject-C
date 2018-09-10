@@ -5,7 +5,6 @@ int main(int argc, char *argv[])
 {
 	FILE *inf;
 	fopen_s(&inf, argv[1], "r");								//从文本中读出单词
-
 	if (inf == NULL)
 	{
 		cout << "error" << endl;
@@ -13,18 +12,14 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-	int chars = countchar(inf);
+	myfile f;
+	f.countchar(inf);
 	rewind(inf);												
-
-	int words = countword(inf);
+	f.countline(inf);
 	rewind(inf);
-
-	int lines = countline(inf);
-
-
-	countfrequency(words);
-
-	outputtxt(chars,lines,words);
+	f.countword(inf);
+	f.px();
+	f.fileoutput();
 
 	return 0;
 }
