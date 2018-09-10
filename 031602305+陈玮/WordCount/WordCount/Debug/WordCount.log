@@ -1,0 +1,3 @@
+﻿  WordCount.cpp
+c:\users\administrator\desktop\personproject-c\031602305+陈玮\wordcount\wordcount\wordcount.cpp(194): warning C4101: “j”: 未引用的局部变量
+  WordCount.vcxproj -> C:\Users\Administrator\Desktop\PersonProject-C\031602305+陈玮\WordCount\Debug\WordCount.exe
