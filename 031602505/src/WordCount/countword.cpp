@@ -10,7 +10,7 @@ int Text::countword(ofstream *outfile)//统计单词数
 		if ((allstring[i] >= 65 && allstring[i] <= 90) || (allstring[i] >= 97 && allstring[i] <= 122))//找到第一个字母  判断是不是单词
 		{
 			flag = 0;
-			for (int j = i; j <= i + 3; j++)
+			for (int j = i; j <= i + 3; j++)//判断是不是匹配单词
 			{
 				if (allstring[j] <= 64 || (allstring[j] >= 91 && allstring[j] <= 96) || allstring[j] >= 123 || len - i < 4)
 				{
@@ -33,7 +33,7 @@ int Text::countword(ofstream *outfile)//统计单词数
 			}
 			else//如果不是单词就跳到下一个单词的第一个字母
 			{
-				for (; (allstring[i] >= 65 && allstring[i] <= 90) || (allstring[i] >= 97 && allstring[i] <= 122); i++) {}
+				for (; (allstring[i] >= 65 && allstring[i] <= 90) || (allstring[i] >= 97 && allstring[i] <= 122 || (allstring[i] >= 48 && allstring[i]<=57)); i++) {}
 			}
 		}
 		else if (allstring[i] >= 48 && allstring[i] <= 57)
