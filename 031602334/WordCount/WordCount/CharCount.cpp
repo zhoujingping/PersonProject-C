@@ -16,14 +16,15 @@ int CharCount(const char *filename)
 	mci charCountMap;
 	while ((charTemp = ifs.get()) != EOF)
 	{
-		charCountMap[charTemp]++;
+		if (charTemp >= NULL && charTemp <= '~')
+			CharNum++;
 	}
-	map<char, int>::const_iterator it;
+	/*map<char, int>::const_iterator it;
 	for (it = charCountMap.begin(); it != charCountMap.end(); it++) {
 		if (it->first >= 0 && it->first <= 255)
 			//cout << "   当前符号为" << it->first << endl;
 			CharNum = CharNum + it->second;
-	}
+	}*/
 	ifs.clear();
 	ifs.seekg(0);
 	return CharNum;
