@@ -90,7 +90,7 @@ void count_all()//统计单词数以及行数函数
 	}
 	if (buf != "")
 	{
-		cout << buf;
+//		cout << buf;
 		for (int k3 = 0; k3 < buf.size(); k3++)
 		{
 			if (buf[k3] > 32)//判断全空格的情况
