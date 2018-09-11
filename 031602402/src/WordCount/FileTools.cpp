@@ -1,6 +1,7 @@
 #include "FileTools.h"
 #include<iostream>
 #include<cstring>
+#include<fstream>
 #include<string>
 #include<vector>
 #include<utility>
@@ -46,8 +47,13 @@ pair<int, int> FileTools::countLine(string s)
 
 
 
-string FileTools::getString(istream& in)
+string FileTools::getString(ifstream& in)
 {
+
+	if (!in.is_open())
+	{
+		return string();
+	}
 	char ch;
 	string s;
 	while ((ch = in.get()) != EOF)

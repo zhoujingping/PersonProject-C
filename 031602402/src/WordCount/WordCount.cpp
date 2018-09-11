@@ -25,6 +25,7 @@ int main(int argc, char* argv[])
 		
 		if (in.is_open())
 		{
+			
 			string s = FileTools::getString(in);
 			ofstream out;
 			out.open("result.txt");

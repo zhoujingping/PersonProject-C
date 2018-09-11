@@ -1,3 +1,6 @@
 ﻿  WordCount.cpp
-  WordCount.vcxproj -> D:\PersonProject-C\031602402\src\WordCount\Debug\WordCount.exe
-  WordCount.vcxproj -> D:\PersonProject-C\031602402\src\WordCount\Debug\WordCount.pdb (Partial PDB)
+  stdafx.cpp
+  FileTools.cpp
+  正在生成代码...
+  WordCount.vcxproj -> D:\PersonProject-C\031602402\src\Debug\WordCount.exe
+  WordCount.vcxproj -> D:\PersonProject-C\031602402\src\Debug\WordCount.pdb (Partial PDB)
