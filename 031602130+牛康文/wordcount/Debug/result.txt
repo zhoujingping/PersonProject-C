@@ -1,0 +1,8 @@
+character: 50
+words: 6
+lines: 3
+<hello>: 2
+<hellop>: 1
+<lsasda>: 1
+<what>: 1
+<world>: 1
