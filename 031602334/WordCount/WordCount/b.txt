@@ -1,0 +1,6 @@
+characters:48
+words:6
+lines:10
+<abcd>:3
+<file>:2
+<abcd1234>:1
