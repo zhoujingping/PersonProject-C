@@ -52,7 +52,7 @@ pair<int, int> FileTools::countLine(string s)
 		}
 		else
 		{
-			if(s[i]!=' ')emp = false;
+			if(s[i]!=' '&&s[i]!='\t'&&s[i]!='	')emp = false;
 		}
 	}
 	return pair<int, int>(line,eline);
@@ -109,9 +109,13 @@ map<string, int> FileTools::countWord(string s)
 	string temp;
 	for (int i = 0; i < (int)s.length()-3; i++)
 	{
-		while (i<(int)s.length()-4&&!isDigit(s[i]) && !isLetter(s[i])) 
+		while (i<(int)s.length()&&!isDigit(s[i]) && !isLetter(s[i])) 
 		{
 			i++;
+		}
+		if (i > (int)s.length()-4)
+		{
+			break;
 		}
 		temp.clear();
 		bool is=true;
@@ -145,7 +149,7 @@ map<string, int> FileTools::countWord(string s)
 			}
 			mp[temp]++;
 		}
-		while (i < s.length() - 4 && (isDigit(s[i]) || isLetter(s[i])))
+		while (i < s.length() && (isDigit(s[i]) || isLetter(s[i])))
 		{
 			i++;
 		}

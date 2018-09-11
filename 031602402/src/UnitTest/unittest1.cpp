@@ -34,7 +34,7 @@ namespace UnitTest
 			pair<int,int> p = FileTools::countLine(s);
 			map<string, int> mp = FileTools::countWord(s);
 			vector<pair<int,string> > v = FileTools::getSort(mp);
-			Assert::AreEqual((int)s.length(), 55);
+			Assert::AreEqual((int)s.length(), 58);
 			Assert::AreEqual(p.first, 4);
 			Assert::AreEqual(p.second, 3);
 			Assert::AreEqual(v[0].second, (string)"aaaa");

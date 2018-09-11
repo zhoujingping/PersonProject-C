@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	}
 	else if (argc == 1)
 	{
-
+		cout << "do nothing" << endl;
 	}
 	else if (argc == 2)
 	{
@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 		{
 			cout << "input open fail" << endl;
 		}
-		system("pause");
+		
 	}
 	return 0;
 }
