@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 			map<string, int> mp = FileTools::countWord(s);
 			pair<int, int> p = FileTools::countLine(s);
 			vector<pair<int,string> > v = FileTools::getSort(mp);
-			out << "words:" << mp.size()<<endl;
+			out << "words:" << FileTools::count(mp)<< endl;
 			out << "lines:" << p.first<<endl;
 			for (int i = 0; i < min(v.size(),10); i++)
 			{

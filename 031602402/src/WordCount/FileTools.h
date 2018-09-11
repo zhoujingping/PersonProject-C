@@ -9,6 +9,7 @@ class FileTools
 	
 public:
 	FileTools();
+	static int count(map<string, int> mp);
 	static pair<int,int> countLine(string s);
 	static string getString(ifstream& in);
 	static bool isLetter(char ch);

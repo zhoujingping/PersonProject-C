@@ -18,6 +18,19 @@ FileTools::FileTools()
 {
 }
 
+int FileTools::count(map<string, int> mp)
+{
+	map<string, int>::iterator it;
+	int res = 0;
+	for (it = mp.begin(); it != mp.end(); it++)
+	{
+		res += it->second;
+	}
+	return res;
+}
+
+
+
 pair<int, int> FileTools::countLine(string s)
 {
 	bool emp = true;
@@ -25,7 +38,7 @@ pair<int, int> FileTools::countLine(string s)
 	int eline = 0;
 	for (int i = 0; i <(int) s.length(); i++)
 	{
-		if (s[i] == '\n')
+		if (s[i] == '\n'||(i==(int)s.length()-1&&s[i]!='\n'))
 		{
 			if (emp)
 			{
@@ -39,13 +52,11 @@ pair<int, int> FileTools::countLine(string s)
 		}
 		else
 		{
-			emp = false;
+			if(s[i]!=' ')emp = false;
 		}
 	}
 	return pair<int, int>(line,eline);
 }
-
-
 
 string FileTools::getString(ifstream& in)
 {
@@ -58,10 +69,10 @@ string FileTools::getString(ifstream& in)
 	string s;
 	while ((ch = in.get()) != EOF)
 	{
-		if (ch >= 0 && ch <= 127)
-		{
+		//if (ch >= 0 && ch <= 127)
+		//{
 			s.append(1, ch);
-		}
+		//}
 		
 	}
 	return s;
@@ -93,10 +104,15 @@ vector<pair<int,string> > FileTools::getSort(map<string, int> mp)
 
 map<string, int> FileTools::countWord(string s)
 {
+	
 	map<string, int> mp;
 	string temp;
 	for (int i = 0; i < (int)s.length()-3; i++)
 	{
+		while (i<(int)s.length()-4&&!isDigit(s[i]) && !isLetter(s[i])) 
+		{
+			i++;
+		}
 		temp.clear();
 		bool is=true;
 		for(int j=0;j<4;j++)
@@ -127,9 +143,13 @@ map<string, int> FileTools::countWord(string s)
 				temp.append(1,s.at(i));
 				i++;
 			}
-			i--;
 			mp[temp]++;
 		}
+		while (i < s.length() - 4 && (isDigit(s[i]) || isLetter(s[i])))
+		{
+			i++;
+		}
+		i--;
 	}
 	return mp;
 }

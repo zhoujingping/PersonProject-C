@@ -1,0 +1,7 @@
+4
+2
+4
+abcd123 2
+aaaa 1
+bbbb 1
+escd 1

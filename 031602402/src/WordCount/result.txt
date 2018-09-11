@@ -1,6 +1,6 @@
-characters:32
-words:3
+characters:55
+words:5
 lines:3
-<aaadedf>:1
-<aabcdh>:1
-<ddws121>:1
+<aaaa>:2
+<abcd123>:2
+<bbbb>:1
