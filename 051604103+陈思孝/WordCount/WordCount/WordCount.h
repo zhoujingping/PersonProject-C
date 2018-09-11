@@ -10,10 +10,7 @@ struct Word {
 	int cnt;
 };//存储单词名和个数
 
-int sum1(int  x, int y)
-{
-	return x + y;
-}
+
 
 //用容器实现分割字符串  
 vector<string> split(const string &s, const string &seperator) {
@@ -67,103 +64,58 @@ int exist1(string x, Word words[500], int k)//判断单词是否已经存在
 	return 0;
 }
 
-int judgeblank(string s)//判断是否为空格行
-{
-	//cout<<s<<endl;
-	int i = 0;
+//int judgeblank(string s)//判断是否为空格行
+//{
+//	//cout<<s<<endl;
+//	int i = 0;
+//	int cnt = 0;
+//	while (i != s.size())
+//	{
+//		if (s[i] == ' ')
+//			cnt++;
+//		i++;
+//	}
+//
+//	//cout<<"cnt:"<<cnt<< ' '<<"size:"<<s.size()<<endl;
+//	if (s.size() == cnt)
+//		return 1;
+//	return 0;
+//}
+int  CountChar(char *filename) {//统计字符串
+	ifstream file(filename);
 	int cnt = 0;
-	while (i != s.size())
-	{
-		if (s[i] == ' ')
-			cnt++;
-		i++;
-	}
-
-	//cout<<"cnt:"<<cnt<< ' '<<"size:"<<s.size()<<endl;
-	if (s.size() == cnt)
-		return 1;
-	return 0;
-}
-int  CountChar(vector<string> &lines, int line) {//统计字符数
-	int cnt = 0;
-	int i = 0;
-	for (i = 0; i < line; i++)
-	{
-		cnt += lines[i].size();
-	}
-	cnt = cnt + line;
-	return cnt;
-}
-int WordNumber(vector<string> &lines)//统计单词数
-{
-	int cnt = 0;
-	for (int unsigned i = 0; i < lines.size(); i++)//size()为无符号
-	{
-		vector<string> t;
-		t = split(lines[i], "1234567890 ");
-		cnt += t.size();
-	}
-
-	return cnt;
-}
-int LineCount(vector<string> &lines)//统计行数
-{
-	return lines.size();
-}
-void WordFCount(vector<string> &lines, Word words[500], int &k)//统计单词词频
-{
-
-	unsigned int i = 0;
-	for (i = 0; i < lines.size(); i++)
-	{
-		vector<string> t = split(lines[i], "#￥%……&*@ .？！");
-		for (unsigned int j = 0; j < t.size(); j++)
-		{
-			if (exist1(t[j], words, k) == 0)
-			{
-				words[k].name = t[j];
-				words[k].cnt++;
-				k++;
-			}
-		}
-	}
-}
-void ResultOut(Word words[500], int Count_char, int Word_num, int Line_count)
-{//输出结果到文本中
-	ofstream file1("D:/test/result.txt");
-	if (!file1)
-		cout << "Open failure!" << endl;
-	else
-	{
-		cout << "characters: " << Count_char << endl;
-		cout << "words: " << Word_num << endl;
-		cout << "lines: " << Line_count << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file1 << words[i].name << ' ' << words[i].cnt << endl;
-		}
-		file1.close();
-	}
-}
-int cmp(Word a, Word b)
-{
-	return a.cnt > b.cnt;
-}
-void SortResult(Word words[500], int k) {//结构体排序
-	sort(words, words + k, cmp);
-}
-void  GetFile(vector<string> &lines)//读文件到字符串数组
-{
-	//int i = 0;
-	ifstream file("D:/test/ttt.txt");
+	char t;
 	if (!file)
-		cout << "Open failure!" << endl;
+	{
+		cout << "Open Failure!" << endl;
+
+	}
 	else
 	{
+
+		while (!file.eof())
+		{
+
+			//cout<<t<<endl;
+			cnt++;
+			file >> t;
+		}
+	}
+	file.close();
+	return cnt;
+}
+int LineCount(char *filename, vector<string> &lines)//统计行数
+{
+	ifstream file(filename);
+	if (!file)
+		cout << "Open failure!LineCount" << endl;
+	else {
+
+
 		string s;
 		while (getline(file, s))
 		{
-			if (s.empty() == 0 && judgeblank(s) == 0)
+			if (s.empty() == 0)
 			{
 				lines.push_back(s);
 
@@ -171,11 +123,32 @@ void  GetFile(vector<string> &lines)//读文件到字符串数组
 		}
 	}
 	file.close();
-	for (unsigned int i = 0; i < lines.size(); i++)
-	{
-		cout << lines[i] << ' ';
-	}
+	return lines.size();
 }
+int WordNumber(char *filename)//统计单词数
+{
+	
+	vector<string> lines;
+	int line = LineCount(filename, lines);
+	ifstream file(filename);
+	if (!file)
+		cout << "Open failure!WordNumber" << endl;
+	int cnt = 0;
+	for (int unsigned i = 0; i < lines.size(); i++)//size()为无符号
+	{
+		vector<string> t;
+		t = split(lines[i], " !@#$%^&*?,.");
+		for (unsigned int i = 0; i < t.size(); i++)
+		{
+			if (t[i].size() >= 4 && (t[i][0] > '9' || t[i][0] < '0'))
+				cnt++;
+		}
+
+	}
+	file.close();
+	return cnt;
+}
+
 void Lower(vector<string> &str)
 {
 	for (unsigned int i = 0; i < str.size(); i++) {
@@ -184,3 +157,56 @@ void Lower(vector<string> &str)
 		transform(str[i].begin(), str[i].end(), str[i].begin(), ::tolower);
 	}
 }
+void WordFCount(char *filename, Word words[500],int &k)//统计单词词频
+{
+	
+	vector<string> lines;
+	int line = LineCount(filename, lines);
+	ifstream file(filename);
+	if (!file)
+		cout << "Open failure!WordFCount" << endl;
+	Lower(lines);
+	unsigned int i = 0;
+	for (i = 0; i < lines.size(); i++)
+	{
+		vector<string> t = split(lines[i], "#￥%……&*@ .？！");
+		for (unsigned int j = 0; j < t.size(); j++)
+		{
+			if (t[j].size() >= 4 && (t[j][0] > '9' || t[j][0] < '0')) {
+				if (exist1(t[j], words, k) == 0)
+				{
+					words[k].name = t[j];
+					words[k].cnt++;
+					k++;
+				}
+			}
+		}
+	}
+	file.close();
+}
+void ResultOut(Word words[500], int Count_char, int Word_num, int Line_count)
+{//输出结果到文本中
+	ofstream file1("result.txt");
+	if (!file1)
+		cout << "Open failure!ResultOut" << endl;
+	else
+	{
+		file1 << "characters: " << Count_char << endl;
+		file1 << "words: " << Word_num << endl;
+		file1 << "lines: " << Line_count << endl;
+		for (int i = 0; i < 10&&words[i].cnt!=0; i++)
+		{
+			file1 << words[i].name << ' ' << words[i].cnt << endl;
+		}
+		file1.close();
+	}
+}
+int cmp(Word a, Word b)
+{   if(a.name!=b.name)
+	return a.cnt > b.cnt;
+    return a.name < b.name;
+}
+void SortResult(Word words[500], int k) {//结构体排序
+	sort(words, words + k, cmp);
+}
+

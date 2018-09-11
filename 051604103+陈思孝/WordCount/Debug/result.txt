@@ -1,0 +1,7 @@
+characters: 31
+words: 7
+lines: 2
+dddd 3
+aeww 2
+howsa 1
+eewqw 1
