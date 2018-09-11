@@ -41,24 +41,36 @@ void counter::splitAndcount(string line)
 	if(i!=line.length())
 	{
 		line_num++; 
-		for(;i<line.length();i++)
+		while(i<line.length())
 		{	
-			// handle spaces, numbers, characters before a may-be-real word
+			// handle characters before a word
 			while(i<line.length() && !isalpha(line[i]))
 			{
-				char_num++;
+				if(isdigit(line[i]))  // handle 123file
+				{
+					while(isalnum(line[i]) && i<line.length())
+					{
+						char_num++;
+						i++;
+					}
+				}
+				if(i!=line.length() && line[i]>=0)
+				{
+					char_num++; 
+				}
 				i++;
 			}
-			// handle a may-be-real word
+			// handle a word
 			string tempWord;
 			while(i<line.length())
 			{
-				char_num++;
+				if(line[i]>0)
+					char_num++;
 				if(isalpha(line[i]))
 				{
 					tempWord+=tolower(line[i]);
 				}
-				else if(isdigit(line[i]))
+				if(isdigit(line[i]))
 				{
 					if(tempWord.length()<4)
 					{
@@ -70,7 +82,7 @@ void counter::splitAndcount(string line)
 						tempWord+=line[i];
 					}
 				}
-				else if(!isalnum(line[i]))
+				if(!isalnum(line[i]) || i==line.length()-1)
 				{
 					if(tempWord.length()>=4)
 					{
@@ -84,10 +96,10 @@ void counter::splitAndcount(string line)
 					i++;
 					break;
 				}
-				else
-				{
-					printf("sth you didnt consider\n");
-				}
+//				else
+//				{
+//					printf("sth you didnt consider\n");
+//				}
 				i++;
 			}
 		}
@@ -117,11 +129,9 @@ void counter::print(char * outFilename)
 	cout<<"words: "<<dic.size()<<endl;
 	cout<<"lines: "<<line_num<<endl;
 	
-	
 	vector<pair<string,int> > tempVec(dic.begin(),dic.end());
 	sort(tempVec.begin(),tempVec.end(),cmp);
 		
-	vector<pair<string,int> >::iterator iter;
 	for(int i=0;i<tempVec.size();i++)  
         cout<<"<"<<tempVec[i].first<<">"<<": "<<tempVec[i].second<<endl;  
 }
@@ -137,7 +147,7 @@ int main(int argc, char *argv[])
 	{
 		string line;
 		getline(inFile,line);
-		if(inFile.fail()) 
+		if(inFile.fail() && line=="") 
             break;
         if(!inFile.eof())
 			line+='\n';
