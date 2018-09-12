@@ -140,7 +140,7 @@ map<string, int> FileTools::countWord(string s)
 			i = i + 4;
 			while (i<(int)s.length()&&(isdigit(s.at(i)) || isLetter(s.at(i))))
 			{
-				if (s[i] >= 'A'&&s[i]<'Z')
+				if (s[i] >= 'A'&&s[i]<='Z')
 				{
 					s[i] -=  ('A' - 'a');
 				}

@@ -51,5 +51,10 @@ int main(int argc, char* argv[])
 		}
 		
 	}
+	else
+	{
+		cout << "do nothing" << endl;
+	}
+	//system("pause");
 	return 0;
 }
