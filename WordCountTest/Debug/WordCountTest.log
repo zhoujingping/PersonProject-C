@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(1877,5): warning : The referenced project '..\..\..\..\Source\Repos\Count\Count\Count.vcxproj' does not exist.
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(1877,5): warning : The referenced project '..\WordCount\WordCount.vcxproj' does not exist.
+  stdafx.cpp
+  unittest1.cpp
+    正在创建库 C:\Users\廖钰萍\Desktop\WordCountTest\Debug\WordCountTest.lib 和对象 C:\Users\廖钰萍\Desktop\WordCountTest\Debug\WordCountTest.exp
+  WordCountTest.vcxproj -> C:\Users\廖钰萍\Desktop\WordCountTest\Debug\WordCountTest.dll
