@@ -18,11 +18,19 @@ using namespace std;
 long cchar(string filename)
 {
 	long cc = 0;
-	fstream fcc(filename.c_str(),ios::in);
+	fstream fcc(filename.c_str(), ios::in);
 	char c;
-	while (fcc.get(c))
+	try
 	{
-		++ cc;
+		while (fcc.get(c))
+		{
+			++cc;
+		}
+	}
+	catch (exception & e)
+	{
+		cout << "Error processing file when counting characters.\n";
+		cout << e.what() << endl;
 	}
 	fcc.close();
 	return cc;
@@ -36,23 +44,30 @@ long cword(string filename)
 	string text;
 	ifstream infile(filename.c_str());
 	int i;
-	while (getline(infile,text))
+	try
 	{
-		for (i = 0; i < text.length(); ++i)
+		while (getline(infile, text))
 		{
-			if (ispunct(text[i])) text[i] = ' '; 
-		}
-		ssword.clear();
-		ssword.str(text);
-		while(ssword >> wt)
-		{
-			if (wt.length() >= 4 && !isdigit(wt[0]) && !isdigit(wt[1]) && !isdigit(wt[2]) && !isdigit(wt[3]))
+			for (i = 0; i < text.length(); ++i)
 			{
-				++ cw;
-			}	
+				if (ispunct(text[i])) text[i] = ' ';
+			}
+			ssword.clear();
+			ssword.str(text);
+			while (ssword >> wt)
+			{
+				if (wt.length() >= 4 && !isdigit(wt[0]) && !isdigit(wt[1]) && !isdigit(wt[2]) && !isdigit(wt[3]))
+				{
+					++cw;
+				}
+			}
 		}
 	}
-	ofstream oufile;
+	catch (exception & e)
+	{
+		cout << "Error processing file when counting words.\n";
+		cout << e.what() << endl;
+	}
 	infile.close();
 	return cw;
 }
@@ -78,47 +93,56 @@ vector<wcn> c10(string filename)
 	map <string, long> wc;
 	vector <wcn> v1;
 	vector <wcn> rep;
-	map <string,long>::iterator it;
+	map <string, long>::iterator it;
 	vector <wcn>::iterator is;
 	ifstream infile(filename.c_str());
 	int i;
-	while (getline(infile,text))
+	try
 	{
-		transform(text.begin(), text.end(), text.begin(), ::tolower);
-		for (i = 0; i < text.length(); ++i)
+		while (getline(infile, text))
 		{
-			if (ispunct(text[i])) text[i] = ' '; 
-		}
-		ssword.clear();
-		ssword.str(text);
-		while(ssword >> wt)
-		{
-			if (wt.length() >= 4 && !isdigit(wt[0]) && !isdigit(wt[1]) && !isdigit(wt[2]) && !isdigit(wt[3]))
+			transform(text.begin(), text.end(), text.begin(), ::tolower);
+			for (i = 0; i < text.length(); ++i)
 			{
-				++ wc[wt];
-			}	
+				if (ispunct(text[i])) text[i] = ' ';
+			}
+			ssword.clear();
+			ssword.str(text);
+			while (ssword >> wt)
+			{
+				if (wt.length() >= 4 && !isdigit(wt[0]) && !isdigit(wt[1]) && !isdigit(wt[2]) && !isdigit(wt[3]))
+				{
+					++wc[wt];
+				}
+			}
+		}
+		it = wc.begin();
+		wcn a;
+		while (it != wc.end())
+		{
+			a.w = it->first;
+			a.c = it->second;
+			v1.push_back(a);
+			++it;
+		}
+		stable_sort(v1.begin(), v1.end(), cmp);
+		is = v1.begin();
+		int p = 0;
+		while (p < 10 && is != v1.end())
+		{
+			a.w = is->w;
+			a.c = is->c;
+			rep.push_back(a);
+			++is;
+			++p;
 		}
 	}
-	it = wc.begin();
-	wcn a;
-	while(it != wc.end())
+	catch (exception & e)
 	{
-		a.w = it->first;
-		a.c = it->second;
-		v1.push_back(a);
-		++ it;
+		cout << "Error processing file when calculating word frequency.\n";
+		cout << e.what() << endl;
 	}
-	stable_sort(v1.begin(), v1.end(), cmp);
-	is = v1.begin();
-	int p = 0;
-	while (p < 10 && is != v1.end())
-	{
-		a.w = is->w;
-		a.c = is->c;
-		rep.push_back(a);
-		++ is;
-		++ p;
-	}
+
 	infile.close();
 	return rep;
 }

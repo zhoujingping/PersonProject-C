@@ -1,18 +1,20 @@
 /*
- * wordcount 031602541
- * 2018-09-07 trial
- * 14-16
+* wordcount 031602541
+* 2018-09-07 trial
+* 14-16
 */
 
 #include "stdafx.h"
 #include "wc.h"
 #include <cstdio>
 #include <iostream>
+#include <map>
 #include <string>
+#include <algorithm>
 #include <fstream>
 #include <sstream>
+#include <cctype>
 #include <vector>
-//#define DBUG
 using namespace std;
 
 string text;
@@ -40,21 +42,32 @@ int main(int argc, char* argv[])
 	text.clear();
 	ifstream infile(argv[1]);
 	ofstream oufile;
-	while(getline(infile,text))
+	while (getline(infile, text))
 	{
-		++ lines;
+		++lines;
 	}
 	infile.close();
-	oufile.open("result.txt",ios::out);
-	
-	oufile << "characters: " << characters<< endl;
-	oufile << "words: " << words << endl;
-	oufile << "lines: " << lines << endl;
-	p = cwr.begin();
-	while (p != cwr.end())
+	try
 	{
-		oufile << '<' << p->w << ">: " << p->c << endl;
-		++p;
+		oufile.open("result.txt", ios::out);
+		cout << "characters: " << characters << endl;
+		oufile << "characters: " << characters << endl;
+		cout << "words: " << words << endl;
+		oufile << "words: " << words << endl;
+		cout << "lines: " << lines << endl;
+		oufile << "lines: " << lines << endl;
+		p = cwr.begin();
+		while (p != cwr.end())
+		{
+			oufile <<  p->w << ": " << p->c << endl;
+			cout << p->w << ": " << p->c << endl;
+			++p;
+		}
+	}
+	catch (exception & e)
+	{
+		cout << "Error writing files.\n";
+		cout << e.what() << endl;
 	}
 	return 0;
 }
