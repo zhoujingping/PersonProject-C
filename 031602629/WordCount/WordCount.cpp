@@ -3,12 +3,14 @@
 #include<stdlib.h>
 #include<string>
 using namespace std;
+/*
 int write()
 {
 
 	return 0;
 }
-int main()
+*/
+int main(int argc, char * argv[])
 {
 	//定义一个名叫fp文件指针
 	FILE *fp;
@@ -21,6 +23,10 @@ int main()
 	int characters = 0, words = 0, lines = 1, wordc[100] = { 0 };
 	//count计数单词字母个数是否有4个以上字母，t标志单词，k代表单词个数,tt标记是否已经存入单词表中,p代表单词可以计数的标志
 	int count = 0, t = 0, k = 0, tt = 0, p = 1;
+	if ((fp = fopen(argv[1], "r")) == NULL)//打开操作不成功
+	{
+		
+	}
 	if ((fp = fopen("test.txt", "r")) == NULL)//打开操作不成功
 	{
 		printf("The file can not be opened.\n");
@@ -117,5 +123,9 @@ int main()
 	{
 		cout << "<" << word[i] << ">：" << wordc[i] << endl;
 	}
+	/*
+	getchar();
+	getchar();
+	*/
 	return 0;
 }
