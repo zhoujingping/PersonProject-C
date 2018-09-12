@@ -1,2 +1,4 @@
 ﻿  unittest1.cpp
+d:\se\personproject-c\051604103+陈思孝\wordcount\wordcount\wordcount.h(57): warning C4804: “<=”: 在操作中使用类型“bool”不安全
+d:\se\personproject-c\051604103+陈思孝\wordcount\wordcount\wordcount.h(63): warning C4018: “<”: 有符号/无符号不匹配
   UnitTest1.vcxproj -> D:\SE\PersonProject-C\051604103+陈思孝\WordCount\Debug\UnitTest1.dll

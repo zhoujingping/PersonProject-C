@@ -4,16 +4,17 @@
 #include <vector> 
 #include<string>
 #include <algorithm>
+
 using namespace std;
 struct Word {
 	string name;
-	int cnt;
+	int cnt=0;
 };//存储单词名和个数
 
 
 
 //用容器实现分割字符串  
-vector<string> split(const string &s, const string &seperator) {
+vector<string> split(const string &s, const string &seperator) {//s为待处理的字符串，t中存放分隔符
 	vector<string> result;
 	typedef string::size_type string_size;
 	string_size i = 0;
@@ -51,9 +52,24 @@ vector<string> split(const string &s, const string &seperator) {
 	}
 	return result;
 }
-int exist1(string x, Word words[500], int k)//判断单词是否已经存在
+int IsEn(char t) {
+
+	if ((t <= 'Z'&&'A' <= t) || (t <= 'z'&&'a' <= t))
+		return 1;
+	return  0;
+}
+int IsWord(string x)
 {
-	for (int i = 0; i < k; i++)
+	
+
+
+	if (x.size() >= 4 && IsEn(x[0])&& IsEn(x[1])&& IsEn(x[2])&& IsEn(x[3]))
+		return 1;
+	return 0;
+}
+int exist1(string x, vector<Word> &words )//判断单词是否已经存在
+{
+	for (int i = 0; i < words.size(); i++)
 	{
 		if (x == words[i].name)
 		{
@@ -64,23 +80,23 @@ int exist1(string x, Word words[500], int k)//判断单词是否已经存在
 	return 0;
 }
 
-//int judgeblank(string s)//判断是否为空格行
-//{
-//	//cout<<s<<endl;
-//	int i = 0;
-//	int cnt = 0;
-//	while (i != s.size())
-//	{
-//		if (s[i] == ' ')
-//			cnt++;
-//		i++;
-//	}
-//
-//	//cout<<"cnt:"<<cnt<< ' '<<"size:"<<s.size()<<endl;
-//	if (s.size() == cnt)
-//		return 1;
-//	return 0;
-//}
+int judgeblank(string s)//判断是否为空格行
+{
+	//cout<<s<<endl;
+	int i = 0;
+	int cnt = 0;
+	while (i != s.size())
+	{
+		if (s[i] == ' ')
+			cnt++;
+		i++;
+	}
+
+	//cout<<"cnt:"<<cnt<< ' '<<"size:"<<s.size()<<endl;
+	if (s.size() == cnt)
+		return 1;
+	return 0;
+}
 int  CountChar(char *filename) {//统计字符串
 	ifstream file(filename);
 	int cnt = 0;
@@ -92,13 +108,14 @@ int  CountChar(char *filename) {//统计字符串
 	}
 	else
 	{
-
-		while (!file.eof())
+		
+		while (file.get(t))
 		{
-
-			//cout<<t<<endl;
+			
+			//cout << (int)t<<endl;
+			
 			cnt++;
-			file >> t;
+			
 		}
 	}
 	file.close();
@@ -115,7 +132,7 @@ int LineCount(char *filename, vector<string> &lines)//统计行数
 		string s;
 		while (getline(file, s))
 		{
-			if (s.empty() == 0)
+			if (s.empty() == 0&& judgeblank(s)==0)
 			{
 				lines.push_back(s);
 
@@ -127,7 +144,7 @@ int LineCount(char *filename, vector<string> &lines)//统计行数
 }
 int WordNumber(char *filename)//统计单词数
 {
-	
+	string sign = "#￥%……&*@ .？!\\|`~^()-_=+{}[],<>/";
 	vector<string> lines;
 	int line = LineCount(filename, lines);
 	ifstream file(filename);
@@ -137,10 +154,10 @@ int WordNumber(char *filename)//统计单词数
 	for (int unsigned i = 0; i < lines.size(); i++)//size()为无符号
 	{
 		vector<string> t;
-		t = split(lines[i], " !@#$%^&*?,.");
+		t = split(lines[i], sign);
 		for (unsigned int i = 0; i < t.size(); i++)
 		{
-			if (t[i].size() >= 4 && (t[i][0] > '9' || t[i][0] < '0'))
+			if (IsWord(t[i])==1)
 				cnt++;
 		}
 
@@ -157,9 +174,9 @@ void Lower(vector<string> &str)
 		transform(str[i].begin(), str[i].end(), str[i].begin(), ::tolower);
 	}
 }
-void WordFCount(char *filename, Word words[500],int &k)//统计单词词频
+void WordFCount(char *filename, vector<Word> &words)//统计单词词频
 {
-	
+	string sign = "#￥%……&*@ .？!\\|`~^()-_=+{}[],<>/";
 	vector<string> lines;
 	int line = LineCount(filename, lines);
 	ifstream file(filename);
@@ -169,24 +186,28 @@ void WordFCount(char *filename, Word words[500],int &k)//统计单词词频
 	unsigned int i = 0;
 	for (i = 0; i < lines.size(); i++)
 	{
-		vector<string> t = split(lines[i], "#￥%……&*@ .？！");
+		vector<string> t = split(lines[i], sign);
 		for (unsigned int j = 0; j < t.size(); j++)
 		{
-			if (t[j].size() >= 4 && (t[j][0] > '9' || t[j][0] < '0')) {
-				if (exist1(t[j], words, k) == 0)
+			if (IsWord(t[j]) == 1) {
+				Word x;
+				x.name = t[j];
+				x.cnt++;
+				if (exist1(x.name,words) == 0)
 				{
-					words[k].name = t[j];
-					words[k].cnt++;
-					k++;
+					words.push_back(x);
+					
 				}
 			}
 		}
 	}
 	file.close();
 }
-void ResultOut(Word words[500], int Count_char, int Word_num, int Line_count)
+void ResultOut(vector<Word> &words, int Count_char, int Word_num, int Line_count)
 {//输出结果到文本中
 	ofstream file1("result.txt");
+	//char name[80] = "D:/SE/PersonProject-C/051604103+陈思孝/WordCount/Debug/result.txt";
+	//ofstream file1(name);
 	if (!file1)
 		cout << "Open failure!ResultOut" << endl;
 	else
@@ -194,19 +215,21 @@ void ResultOut(Word words[500], int Count_char, int Word_num, int Line_count)
 		file1 << "characters: " << Count_char << endl;
 		file1 << "words: " << Word_num << endl;
 		file1 << "lines: " << Line_count << endl;
-		for (int i = 0; i < 10&&words[i].cnt!=0; i++)
-		{
-			file1 << words[i].name << ' ' << words[i].cnt << endl;
+		for (int i = 0; i < 10&&i!=words.size(); i++)
+		{//cout << words[i].name << ' ' << words[i].cnt << endl;
+			file1 <<'<'<< words[i].name <<'>'<< ": " << words[i].cnt << endl;
 		}
 		file1.close();
+		cout << "Out Success!" << endl;
 	}
 }
 int cmp(Word a, Word b)
-{   if(a.name!=b.name)
+{   if(a.cnt!=b.cnt)
 	return a.cnt > b.cnt;
+    else
     return a.name < b.name;
 }
-void SortResult(Word words[500], int k) {//结构体排序
-	sort(words, words + k, cmp);
+void SortResult(vector<Word> &words) {//vector排序
+	sort(words.begin(),words.end(), cmp);
 }
 
