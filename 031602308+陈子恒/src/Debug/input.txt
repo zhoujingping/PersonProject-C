@@ -1,0 +1,10 @@
+characters:1
+lines: 1
+words:8
+happy 2
+asdgs 1
+dasf 1
+dsuifabdsig 1
+happ 1
+sadjfhsdbg 1
+safsyefh 1
