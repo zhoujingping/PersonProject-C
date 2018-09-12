@@ -44,7 +44,7 @@ int sort(struct word *&head)
 				q->num = 0;
 				if (a[i].num != 0)
 				{
-					std::ofstream openfile("C:/Users/Mac/Desktop/result.txt", std::ios::app);
+					std::ofstream openfile("result.txt", std::ios::app);
 					openfile << "<" << a[i].name << ">:" << a[i].num << endl;
 					openfile.close();
 				}

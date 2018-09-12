@@ -26,7 +26,7 @@ int readlines(struct word*&head, char *filename, int file_lines)
 		bb_chars = chars;
 	}
 	file_lines++;
-	std::ofstream openfile("C:/Users/Mac/Desktop/result.txt", std::ios::app);
+	std::ofstream openfile("result.txt", std::ios::app);
 	openfile << "lines:" << file_lines << endl;
 	openfile.close();
 	return 0;

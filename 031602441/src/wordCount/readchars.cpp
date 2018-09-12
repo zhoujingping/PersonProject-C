@@ -23,7 +23,7 @@ int readchars(struct word *& head, char *filename, int file_chars)
 			break;
 		file_chars++;
 	}
-	std::ofstream openfile("C:/Users/Mac/Desktop/result.txt", std::ios::trunc);
+	std::ofstream openfile("result.txt", std::ios::trunc);
 	openfile << "characters:" << file_chars << endl;
 	openfile.close();
 	return 0;

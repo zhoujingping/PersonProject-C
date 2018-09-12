@@ -74,7 +74,7 @@ int readword(struct word*&head, char *filename, int word_num)
 		}
 		flag = 0;
 	}
-	std::ofstream openfile("C:/Users/Mac/Desktop/result.txt", std::ios::app);
+	std::ofstream openfile("result.txt", std::ios::app);
 	openfile << "words:" << word_num << endl;
 	openfile.close();
 	return 0;
