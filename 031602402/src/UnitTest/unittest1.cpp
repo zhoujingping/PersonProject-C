@@ -55,5 +55,26 @@ namespace UnitTest
 			int res = FileTools::count(mp);
 			Assert::AreEqual((int)s.length(), 100001);
 		}
+		TEST_METHOD(TestMethod5)
+		{
+			ifstream in;
+			in.open("test5.txt");
+			string s = FileTools::getString(in);
+			pair<int, int> p = FileTools::countLine(s);
+			map<string, int> mp = FileTools::countWord(s);
+			vector<pair<int, string> > v = FileTools::getSort(mp);
+			int res = FileTools::count(mp);
+			ofstream out;
+			out.open("result.txt");
+			out << "characters:" << s.length() << endl;
+			out << "words:" << FileTools::count(mp) << endl;
+			out << "lines:" << p.first << endl;
+			int up = 10;
+			if (v.size() < 10)up = v.size();
+			for (int i = 0; i < up; i++)
+			{
+				out << "<" << v[i].second << ">:" << v[i].first << endl;
+			}
+		}
 	};
 }
