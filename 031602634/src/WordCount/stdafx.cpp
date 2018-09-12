@@ -130,7 +130,7 @@ void myfile::fileoutput()
 	if (n > 10) n = 10;
 	for (int i = 0; i < n; i++)
 	{
-		File << str[i].word << ": " << str[i].count << endl;
+		File <<"<"<< str[i].word << ">: " << str[i].count << endl;
 	}
 }
 

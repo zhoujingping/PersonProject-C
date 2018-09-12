@@ -4,7 +4,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace countchartest
+namespace countchartest							//第一测试
 {		
 	TEST_CLASS(UnitTest1)
 	{
@@ -24,7 +24,7 @@ namespace countchartest
 	};
 }
 
-namespace countlinetest
+namespace countlinetest							//第二测试
 {
 	TEST_CLASS(UnitTest1)
 	{
@@ -44,7 +44,7 @@ namespace countlinetest
 	};
 }
 
-namespace countwordtest
+namespace countwordtest							//第三测试
 {
 	TEST_CLASS(UnitTest1)
 	{
