@@ -20,7 +20,7 @@ namespace UnitTest1
 		{
 			char name[100];
 			strcpy_s(name, "../UnitTest1/test/test2.txt");
-			pii count_words = CountWord(name);	//计算单词数(插入哈希节点)
+			pii count_words = CountWord(name);	
 			Assert::AreEqual(count_words.fi, 94);
 		}
 		TEST_METHOD(TestMethod3)

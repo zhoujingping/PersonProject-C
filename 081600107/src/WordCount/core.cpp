@@ -17,7 +17,10 @@ int CountChar(char *name) {
 		if (ch > 128) continue;
 		characters++;
 	}
-	if (characters == 0) { cout << "File not found!"; }
+	if (characters == 0) { 
+		cout << "File not found!"; 
+		exit(1);
+	}
 	return characters;
 }
 
