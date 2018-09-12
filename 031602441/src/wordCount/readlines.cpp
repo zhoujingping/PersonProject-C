@@ -9,22 +9,28 @@ int readlines(struct word*&head, char *filename, int file_lines)
 {
 
 	FILE *file = _fsopen(filename, "r", _SH_DENYNO);
-	if (!file)
-	{
-		printf("打开文件错误！");
-		return 0;
-	}
 	char chars = -1;
-	char bb_chars = -1;//前一个字符 
+	int flag1 = 0;//有字符为1
 	while (1)
 	{
 		chars = fgetc(file);
 		if (chars == EOF)
 			break;
-		if (chars == '\n'&&bb_chars != '\n')
+		if (flag1 == 0)
+		{
+			if (!isspace(chars))
+			{
+				flag1 = 1;
+			}
+		}
+		if (chars == '\n'&&flag1 == 1)
+		{
+			flag1 = 0;
 			file_lines++;
-		bb_chars = chars;
+		}
+		
 	}
+	if(flag1==1)
 	file_lines++;
 	std::ofstream openfile("result.txt", std::ios::app);
 	openfile << "lines:" << file_lines << endl;
