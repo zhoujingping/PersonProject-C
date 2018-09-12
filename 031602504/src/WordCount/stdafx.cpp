@@ -2,24 +2,29 @@
 #include"stdafx.h"
 #include<map>
 #include<iostream>
-
+#include <assert.h>
 using namespace std;
 struct word_frequency {
-	string word;
-	int count;
+	string word="0";
+	int count=0;
 };
 
 CountMeths::CountMeths(string name)
 {
-	strcpy_s(filename,name.size()+1,name.c_str());
+	strcpy_s(filename, name.size() + 1, name.c_str());
 	FILE* filein;
 	int err;
 	err = fopen_s(&filein, filename, "r");
-	if (err)
+	if(err)
 	{
 		printf("open erro!Check Yur File Exist\n");
 	}
-	fclose(filein);
+
+	if (filein)
+	{
+		fclose(filein);
+	}
+	
 }
 int CountMeths::CountCharacters()
 {
@@ -33,6 +38,7 @@ int CountMeths::CountCharacters()
 		return 0;
 	}
 	char onechar;
+	assert(filein);
 	err = fread(&onechar, sizeof(char), 1, filein);
 	while (err)
 	{
@@ -42,6 +48,7 @@ int CountMeths::CountCharacters()
 		}
 		err = fread(&onechar, sizeof(char), 1, filein);
 	}
+	assert(filein);
 	fclose(filein);
 	return characternum;
 }
@@ -72,9 +79,12 @@ int CountMeths::CountWords()
 		printf("erro!\n");
 		return 0;
 	}
-	char *word = (char*)malloc(1000); memset(word, '\0', 1000);
+	char *word = (char*)malloc(1000);
+	assert(word);
+	memset(word, '\0', 1000);
 	char onechar;
 	char temp[2];
+	assert(filein);
 	err = fread(&onechar, sizeof(char), 1, filein);
 	while (err)
 	{
@@ -109,21 +119,10 @@ int CountMeths::CountWords()
 	free(word);
 	return wordnum;
 }
-bool CountMeths::IsValid(char *oneline)
-{
-	int i = 0, len = strlen(oneline);
-	for (i = 0; i < len; i++)
-	{
-		if (oneline[i] >= 33)
-		{
-			return true;
-		}
-	}
-	return false;
-}
 int CountMeths::ValidLines()
 {
 	int validnum = 0;
+	bool vflag = false;
 	FILE *filein;
 	int err;
 	err = fopen_s(&filein, filename, "r");
@@ -131,16 +130,21 @@ int CountMeths::ValidLines()
 	{
 		printf("open erro!\n");
 	}
-	char oneline[1000];
-
-	while (fgets(oneline, 1000, filein))
+	char oneline;
+	assert(filein);
+	while (fread(&oneline,1, 1, filein))
 	{
-		if (IsValid(oneline))
+		if (oneline>=33)
+		{
+			vflag = true;
+		}
+		if (oneline == '\n' && vflag)
 		{
 			validnum++;
+			vflag = false;
 		}
-		memset(oneline, '\0', 1000);
 	}
+	assert(filein);
 	fclose(filein);
 	return validnum;
 }
@@ -204,7 +208,6 @@ void CountMeths::PrintTenWords()
 	map <string, int>::iterator dict_Iter;
 	map <string, int>::iterator dict_Iter2;
 	int i;
-
 	for (i = 0; i < 10; i++)
 	{
 		dict_Iter2 = dict.begin();
@@ -237,6 +240,7 @@ void CountMeths::ChangeFiles(string name)
 	{
 		printf("open erro!Check Yur File Exist\n");
 	}
+	assert(filein);
 	fclose(filein);
 }
 void CountMeths::ResultFile(string name)
@@ -341,10 +345,12 @@ void CountMeths::ResultFile(string name)
 		if (maxten[i].count)
 		{
 			sprintf_s(secondpart, 100, "<%s>: %d\n",maxten[i].word.c_str(),maxten[i].count);
+			assert(fileout);
 			fwrite(secondpart, sizeof(char)*strlen(secondpart), 1, fileout);
 			memset(secondpart, '\0', 100);
 		}
 	}
 	printf("success!");
+	assert(fileout);
 	fclose(fileout);
 }
