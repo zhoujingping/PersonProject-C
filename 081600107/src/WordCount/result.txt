@@ -1,0 +1,4 @@
+characters: 15
+words: 1
+lines: 1
+<file123>: 1
