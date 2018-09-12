@@ -63,7 +63,7 @@ namespace UnitTest1
 			Word w = Word();
 			char file[1000] = "../UnitTest1/num.txt";
 			int n3 = w.Countwords(file);
-			Assert::IsTrue(n3 == 0);
+			Assert::IsTrue(n3 == 1);
 			// TODO: 在此输入测试代码
 		}
 		TEST_METHOD(text_transform)
@@ -96,7 +96,7 @@ namespace UnitTest1
 			Word w = Word();
 			char file[1000] = "../test/input.txt";
 			int n2 = w.Countlines(file);
-			Assert::IsTrue(n2 == 11);
+			Assert::IsTrue(n2 == 13);
 			// TODO: 在此输入测试代码
 		}
 		TEST_METHOD(Countwords_test)
@@ -118,7 +118,7 @@ namespace UnitTest1
 			Word w = Word();
 			char file[1000] = "../test/input.txt";
 			int n2 = w.Countcharacters(file);
-			Assert::IsTrue(n2 == 98);
+			Assert::IsTrue(n2 == 130);
 			// TODO: 在此输入测试代码
 		}
 		TEST_METHOD(top10_test)
