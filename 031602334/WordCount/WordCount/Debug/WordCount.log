@@ -1,4 +1,4 @@
 ﻿  main.cpp
-  WordFrequency.cpp
-  正在生成代码...
+LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/PROFILE”规范)
+CharCount.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/OPT:REF”规范)
   WordCount.vcxproj -> D:\Document\031602334\WordCount\Debug\WordCount.exe

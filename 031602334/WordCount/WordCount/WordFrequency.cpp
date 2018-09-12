@@ -7,8 +7,9 @@
 //
 
 #include "WordFrequency.h"
-msi WordsMap;
+//msi WordsMap;
 vpsi WordsVec;
+unordered_map<string, int> WordsMap;
 
 int sortWords(psi p1, psi p2)
 {
@@ -21,28 +22,27 @@ int sortWords(psi p1, psi p2)
 
 long wordsCount(const char *filename)
 {
-	regex WordsRegex("^[a-z]{4}[a-z0-9]*");//单词的正则表达式
+	regex WordsRegex("[A-Za-z][A-Za-z][A-Za-z][A-Za-z][[:w:]]+");
+	//regex WordsRegex("^[a-z]{4}[a-z0-9]*");//单词的正则表达式
 	long wordsnum = 0;
 	string temp;
 	fstream TextFile;
 	TextFile.open(filename);
 	string OneLine;
-
 	while (TextFile >> OneLine)
 	{
-		transform(OneLine.begin(), OneLine.end(), OneLine.begin(), ::tolower);  //转换为小写
+	transform(OneLine.begin(), OneLine.end(), OneLine.begin(), ::tolower);  //转换为小写
 		sregex_token_iterator end;
-		for (sregex_token_iterator wordIter(OneLine.begin(), OneLine.end(), WordsRegex); wordIter != end; wordIter++) {//在一行文本中逐个找出单词
-																													   //cout<<*wordIter<<endl;//每个单词
+		for (sregex_token_iterator wordIter(OneLine.begin(), OneLine.end(), WordsRegex),end; wordIter != end; wordIter++) 
+		{//在一行文本中逐个找出单词																					   //cout<<*wordIter<<endl;//每个单词
 			WordsMap[*wordIter]++;//单词计数
 			wordsnum++;
 		}
 	}
 
-	for (map<string, int>::iterator iter = WordsMap.begin(); iter != WordsMap.end(); iter++)
+	for (unordered_map<string, int>::iterator iter = WordsMap.begin(); iter != WordsMap.end(); iter++)
 	{
 		WordsVec.push_back(pair<string, int>(iter->first, iter->second));
-		//cout << iter->first << " " << iter->second << endl;
 	}
 	sort(WordsVec.begin(), WordsVec.end(), sortWords);
 	TextFile.clear();
@@ -59,6 +59,11 @@ void WordsPrint(const char *filename1, const char *filename2, int num)
 
 	ofstream out(filename2, ios::in | ios::out);
 	out.seekp(0, ios::end);
+
+	/*for (vpsi::iterator iter = WordsVec.begin(); iter != WordsVec.end(); ++iter)
+	{
+		out << "!!!!!" << iter->first << ">:" << iter->second << endl;
+	}*/
 
 	for (vpsi::iterator iter = WordsVec.begin(); iter != (WordsVec.begin() + endp); ++iter)
 	{

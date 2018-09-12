@@ -10,7 +10,8 @@
 
 long WordsCount(const char *filename)
 {
-	regex WordsRegex("^[a-z]{4}[a-z0-9]*");//单词的正则表达式
+	regex WordsRegex("[A-Za-z][A-Za-z][A-Za-z][A-Za-z][[:w:]]+");
+	//regex WordsRegex("^[a-z]{4}[a-z0-9]*");//单词的正则表达式
 	long wordsnum = 0;
 	string temp;
 	fstream TextFile;
@@ -20,7 +21,7 @@ long WordsCount(const char *filename)
 	{
 		transform(OneLine.begin(), OneLine.end(), OneLine.begin(), ::tolower);  //转换为小写
 		sregex_token_iterator end;
-		for (sregex_token_iterator wordIter(OneLine.begin(), OneLine.end(), WordsRegex); wordIter != end; wordIter++)
+		for (sregex_token_iterator wordIter(OneLine.begin(), OneLine.end(), WordsRegex), end; wordIter != end; wordIter++)
 		{//在一行文本中逐个找出单词
 			wordsnum++;
 		}

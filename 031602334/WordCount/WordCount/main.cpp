@@ -21,7 +21,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
 	const char *FileName = "a.txt";
-	const char *OutName = "b.txt";
+	const char *OutName = "result.txt";
 	//const char *FileName = argv[1];
 	ifstream TextFile(FileName);
 	if (!TextFile)

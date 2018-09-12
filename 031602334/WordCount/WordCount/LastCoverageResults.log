@@ -1,0 +1,57 @@
+[2018-09-12 18:23:05] [info] Start Program:
+Path:"D:\Document\031602334\WordCount\Debug\WordCount.exe"
+Arguments:
+Working directory: "D:\Document\031602334\WordCount\WordCount\"
+Modules: Selected: D:\Document\031602334\WordCount\Debug\WordCount.exe D:\Document\031602334\WordCount\Debug\WordCountTest.dll Excluded: 
+Sources: Selected: D:\Document\031602334\WordCount\WordCount D:\Document\031602334\WordCount\WordCountTest Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\ASUS\AppData\Local\Temp\lr52eico.yhp 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+
+[2018-09-12 18:23:05] [info] Module: D:\Document\031602334\WordCount\Debug\WordCount.exe is selected because it matches selected pattern: 
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordscount.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 72 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\wordfrequency.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\main.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\linescount.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [warning] d:\document\031602334\wordcount\wordcount\charcount.cpp line 15732480 does not exist, skipped
+[2018-09-12 18:23:05] [info] Module: C:\WINDOWS\SysWOW64\ntdll.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:05] [info] Module: C:\WINDOWS\SysWOW64\kernel32.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:05] [info] Module: C:\WINDOWS\SysWOW64\KernelBase.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:05] [info] Module: C:\WINDOWS\SysWOW64\vcruntime140d.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:05] [info] Module: C:\WINDOWS\SysWOW64\msvcp140d.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:05] [info] Module: C:\WINDOWS\SysWOW64\ucrtbased.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:06] [info] Module: C:\WINDOWS\SysWOW64\kernel.appcore.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:06] [info] Module: C:\WINDOWS\SysWOW64\msvcrt.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:06] [info] Module: C:\WINDOWS\SysWOW64\rpcrt4.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:06] [info] Module: C:\WINDOWS\SysWOW64\sspicli.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:06] [info] Module: C:\WINDOWS\SysWOW64\cryptbase.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:06] [info] Module: C:\WINDOWS\SysWOW64\bcryptprimitives.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:06] [info] Module: C:\WINDOWS\SysWOW64\sechost.dll is skipped because it matches no selected patterns
+[2018-09-12 18:23:06] [info] ----------------------------------------------------
+[2018-09-12 18:23:06] [info] Coverage binary generated in file: C:\Users\ASUS\AppData\Local\Temp\lr52eico.yhp
+[2018-09-12 18:23:06] [info] ----------------------------------------------------

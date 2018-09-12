@@ -176,6 +176,7 @@
     <Text Include="Chinese.txt" />
     <Text Include="Empty.txt" />
     <Text Include="FullDelimiter.txt" />
+    <Text Include="Normal.txt" />
     <Text Include="OneWord.txt" />
     <Text Include="WrongWord.txt" />
   </ItemGroup>

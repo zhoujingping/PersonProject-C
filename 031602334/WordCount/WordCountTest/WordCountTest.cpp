@@ -9,16 +9,21 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace WordCountTest
 {		
-	TEST_CLASS(UnitTest1)
+	TEST_CLASS(FileTest)
 	{
 	private:
 /*	
 
 */
-
-
 	public:
 
+		TEST_METHOD(TestErrofile)
+		{
+			// TODO: ²âÊÔ¿ÕÎÄ¼þ
+			char filename[100] = "../WordCountTest/Wrongname.txt";
+			FILE *fp;
+			Assert::IsFalse(fp = fopen(filename, "r"));
+		}
 		
 		TEST_METHOD(TestEmptyFile)
 		{
@@ -98,6 +103,18 @@ namespace WordCountTest
 			Assert::IsTrue(fp = fopen(filename, "r"));
 			int WordsNum = WordsCount(filename);
 			Assert::IsTrue(WordsNum == 1);
+		}
+
+		TEST_METHOD(TestNormalFile)
+		{
+			// TODO: ²âÊÔ¿Õ°××Ö·ûÎÄ¼þ
+			char filename[200] = "../WordCountTest/Normal.txt";
+			FILE *fp;
+			Assert::IsTrue(fp = fopen(filename, "r"));
+			int WordsNum = WordsCount(filename);
+			int LinesNum = LinesCount(filename);
+			Assert::IsTrue(WordsNum == 14);
+			Assert::IsTrue(LinesNum);
 		}
 	};
 }
