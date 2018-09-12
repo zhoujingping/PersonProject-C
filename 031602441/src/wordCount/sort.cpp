@@ -1,16 +1,11 @@
 #include"pch.h"
 #include"readword.h"
 #include<fstream>
+#include"structword.h"
 using namespace std;
 
-extern struct word
-{
-	char name[30];
-	int num;
-	struct word *next;
-};
 /****************************ÅÅÐò***********************/
-void sort(struct word*&head)
+int sort(struct word *&head)
 {
 	struct word *q;
 	struct word a[10];
@@ -58,5 +53,6 @@ void sort(struct word*&head)
 			else
 				q = q->next;
 		}
-	}
+		
+	}return 0;
 }

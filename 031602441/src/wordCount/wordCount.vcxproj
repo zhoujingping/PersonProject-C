@@ -160,6 +160,7 @@
     <ClInclude Include="readlines.h" />
     <ClInclude Include="readword.h" />
     <ClInclude Include="sort.h" />
+    <ClInclude Include="structword.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -173,6 +174,7 @@
     <ClCompile Include="readchars.cpp" />
     <ClCompile Include="readword.cpp" />
     <ClCompile Include="sort.cpp" />
+    <ClCompile Include="structword.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

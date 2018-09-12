@@ -1,16 +1,12 @@
 #include"pch.h"
 #include"readword.h"
+#include"structword.h"
 #include<fstream>
 using namespace std;
 
-extern struct word
-{
-	char name[30];
-	int num;
-	struct word *next;
-};
+
 /**********************读取文件中单词*********************/
-void readword(struct word*&head, char *filename, int word_num)
+int readword(struct word*&head, char *filename, int word_num)
 {
 	int flag = 0;
 	FILE *fp;
@@ -81,4 +77,5 @@ void readword(struct word*&head, char *filename, int word_num)
 	std::ofstream openfile("C:/Users/Mac/Desktop/result.txt", std::ios::app);
 	openfile << "words:" << word_num << endl;
 	openfile.close();
+	return 0;
 }
