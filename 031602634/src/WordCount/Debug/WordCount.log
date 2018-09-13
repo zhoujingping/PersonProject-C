@@ -1,0 +1,3 @@
+﻿  stdafx.cpp
+d:\mygithub\personproject-c\031602634\src\wordcount\stdafx.cpp(27): warning C4715: “mycmpstruct”: 不是所有的控件路径都返回值
+  WordCount.vcxproj -> D:\mygithub\PersonProject-C\031602634\src\Debug\WordCount.exe
