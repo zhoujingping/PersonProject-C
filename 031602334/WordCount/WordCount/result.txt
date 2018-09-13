@@ -1,0 +1,11 @@
+characters:159
+words:15
+lines:17
+<file123>:4
+<bananana>:3
+<coutbala>:2
+<file234>:2
+<file456>:1
+<gcccc>:1
+<small>:1
+<testtttttttttttt>:1
