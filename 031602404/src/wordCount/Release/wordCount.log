@@ -1,0 +1,9 @@
+﻿  Tool.cpp
+d:\rgsj\zy2\personproject-c\031602404\src\wordcount\tool.cpp(51): warning C4018: “<”: 有符号/无符号不匹配
+d:\rgsj\zy2\personproject-c\031602404\src\wordcount\tool.cpp(67): warning C4018: “<”: 有符号/无符号不匹配
+d:\rgsj\zy2\personproject-c\031602404\src\wordcount\tool.cpp(75): warning C4018: “>”: 有符号/无符号不匹配
+  源.cpp
+  正在生成代码
+  All 487 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  wordCount.vcxproj -> D:\RGSJ\ZY2\PersonProject-C\031602404\src\Release\wordCount.exe

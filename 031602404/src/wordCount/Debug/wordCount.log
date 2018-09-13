@@ -1,0 +1,7 @@
+﻿  Tool.cpp
+d:\rgsj\personproject-c\031602404\src\wordcount\tool.cpp(51): warning C4018: “<”: 有符号/无符号不匹配
+d:\rgsj\personproject-c\031602404\src\wordcount\tool.cpp(67): warning C4018: “<”: 有符号/无符号不匹配
+d:\rgsj\personproject-c\031602404\src\wordcount\tool.cpp(75): warning C4018: “>”: 有符号/无符号不匹配
+  源.cpp
+  正在生成代码...
+  wordCount.vcxproj -> D:\RGSJ\PersonProject-C\031602404\src\Debug\wordCount.exe

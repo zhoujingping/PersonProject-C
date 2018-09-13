@@ -1,0 +1,8 @@
+characters:54
+words:5
+lines:6
+<aaaaaa>:1
+<abcd>:1
+<efewf>:1
+<egegergege>:1
+<fergege53453>:1
