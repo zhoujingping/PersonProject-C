@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>wordcount.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>30</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

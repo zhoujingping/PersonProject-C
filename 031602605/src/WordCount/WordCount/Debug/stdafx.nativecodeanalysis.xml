@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>10</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Word::{ctor}</FUNCTION>
+    <DECORATED>??0Word@@QAE@XZ</DECORATED>
+    <FUNCLINE>10</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>16</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>Word::{ctor}</FUNCTION>
+    <DECORATED>??0Word@@QAE@XZ</DECORATED>
+    <FUNCLINE>10</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>107</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>Word::Countwords</FUNCTION>
+    <DECORATED>?Countwords@Word@@QAEHPAD@Z</DECORATED>
+    <FUNCLINE>41</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>133</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>Word::Countwords</FUNCTION>
+    <DECORATED>?Countwords@Word@@QAEHPAD@Z</DECORATED>
+    <FUNCLINE>41</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>168</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>Word::Counttop10</FUNCTION>
+    <DECORATED>?Counttop10@Word@@QAE?AV?$vector@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@std@@V?$allocator@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@std@@@2@@std@@PAD@Z</DECORATED>
+    <FUNCLINE>165</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>176</LINE>
+      <COLUMN>35</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>Word::Counttop10</FUNCTION>
+    <DECORATED>?Counttop10@Word@@QAE?AV?$vector@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@std@@V?$allocator@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@std@@@2@@std@@PAD@Z</DECORATED>
+    <FUNCLINE>165</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>178</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>Word::Counttop10</FUNCTION>
+    <DECORATED>?Counttop10@Word@@QAE?AV?$vector@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@std@@V?$allocator@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@std@@@2@@std@@PAD@Z</DECORATED>
+    <FUNCLINE>165</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>180</LINE>
+      <COLUMN>58</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>Word::Counttop10</FUNCTION>
+    <DECORATED>?Counttop10@Word@@QAE?AV?$vector@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@std@@V?$allocator@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@std@@@2@@std@@PAD@Z</DECORATED>
+    <FUNCLINE>165</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\hello_ok\desktop\031602605\wordcount\wordcount\</FILEPATH>
+      <FILENAME>stdafx.cpp</FILENAME>
+      <LINE>189</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>File::{ctor}</FUNCTION>
+    <DECORATED>??0File@@QAE@XZ</DECORATED>
+    <FUNCLINE>189</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

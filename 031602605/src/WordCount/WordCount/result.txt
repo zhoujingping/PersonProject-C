@@ -1,0 +1,10 @@
+characters: 130
+words: 9
+lines: 13
+<vasdvs>: 3
+<bsbsdb>: 1
+<casv>: 1
+<casvsa1998>: 1
+<casvsa2000>: 1
+<casvsa2001>: 1
+<vdav>: 1
