@@ -13,7 +13,7 @@ void CharCount::charCount(string fileName, CharCount &charcount)//定义字符数统计
 	inFile.open(fileName);//读取文件
 	if (inFile.fail()) //读取文件失败
 	{
-		cout << "Could not find the file\n";
+		throw "Could not find the file\n";
 		cout << "Program terminating\n";
 		exit(EXIT_FAILURE);
 	}
@@ -30,6 +30,10 @@ void CharCount::charCount(string fileName, CharCount &charcount)//定义字符数统计
 			inFile >> c;
 		}
 	}
+	if (charnum == 0)
+	{
+		throw "空文本，请向文本中输入字符\n";
+	}
 }
 
 void WordCount::countresult()
@@ -38,7 +42,7 @@ void WordCount::countresult()
 	outFile << "words:" << wordnum;
 	outFile << endl;
 }
-void WordCount::wordCount(string fileName, WordCount &wordcount)
+void WordCount::wordCount(string fileName, WordCount &wordcount)//定义单词数统计函数
 {
 	char c;
 	int flag = 0;
@@ -72,6 +76,10 @@ void WordCount::wordCount(string fileName, WordCount &wordcount)
 		}
 		if (c == EOF)break;
 	}
+	if (wordnum == 0)
+	{
+		throw "无单词，请输入至少一个有效单词！\n";
+	}
 	inFile.close();
 }
 
@@ -81,7 +89,7 @@ void LineCount::countresult()//输出行数
 	outFile << "lines:" << linenum;
 	outFile << endl;
 }
-void LineCount::lineCount(string fileName, LineCount &linecount)
+void LineCount::lineCount(string fileName, LineCount &linecount)//定义行数统计函数
 {
 	fstream inFile;
 	string tmp;
@@ -96,6 +104,10 @@ void LineCount::lineCount(string fileName, LineCount &linecount)
 	{
 		linecount.linenum++;
 	}
+	if (linenum == 0)
+	{
+		throw "空文本，请向文本中输入字符\n";
+	}
 	inFile.close();
 }
 
@@ -105,13 +117,13 @@ WordList::WordList()
 	pWordTail = new Word();
 	pWordHead->next = pWordTail;
 	pWordTail->previous = pWordHead;
-	for (int i = 0; i<128; i++) index[i] = nullptr;
+	for (int i = 0; i<512; i++) index[i] = nullptr;
 }
 WordList::~WordList()
 {
 	delete pWordHead;
 
-	for (int i = 0; i<128; i++) {
+	for (int i = 0; i<512; i++) {
 		delete index[i];
 		index[i] = nullptr;
 	}
@@ -184,7 +196,7 @@ int WordList::Hash(char* word) {
 	while (*word != '\0')
 		HashVal += *word++;
 
-	return HashVal & 127;
+	return HashVal & 511;
 
 }
 void WordList::shiftWord(Word *pWord)
@@ -250,6 +262,5 @@ void WordList::wordCount(string fileName, WordList &wordList)
 		}
 
 	} while (c != EOF);
-
 	inFile.close();
 }

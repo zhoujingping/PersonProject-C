@@ -9,10 +9,38 @@ int main()
 	WordList wordlist;
 	cout << "Please enter the file's name:\n";
 	cin.getline(fileName, Arsize);//输入txt格式文本文件名
-	charcount.charCount(fileName, charcount);//调用字符数统计函数
-	linecount.lineCount(fileName, linecount);//调用行数统计函数
-	wordcount.wordCount(fileName, wordcount);
-	wordlist.wordCount(fileName, wordlist);
+	try
+	{
+		charcount.charCount(fileName, charcount);//调用字符数统计函数
+	}
+	catch (char *Error)
+	{
+		cout << Error << endl;
+	}
+	try
+	{
+		linecount.lineCount(fileName, linecount);//调用行数统计函数
+	}
+	catch (char *Error)
+	{
+		cout << Error << endl;
+	}
+	try
+	{
+		wordcount.wordCount(fileName, wordcount);//调用单词数统计函数
+	}
+	catch (char *Error)
+	{
+		cout << Error << endl;
+	}
+	try
+	{
+		wordlist.wordCount(fileName, wordlist);//单用词频统计函数
+	}
+	catch (char *Error)
+	{
+		cout << Error << endl;
+	}
 	charcount.countresult();
 	wordcount.countresult();
 	linecount.countresult();

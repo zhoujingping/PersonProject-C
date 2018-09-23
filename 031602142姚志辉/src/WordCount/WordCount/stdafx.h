@@ -45,7 +45,7 @@ public:
 	void countresult();//输出行数
 };
 //单词词频统计类
-#define	MAX_WORD_LENGTH 20
+#define	MAX_WORD_LENGTH 50
 struct Word {
 	char word[MAX_WORD_LENGTH];
 	int num;
@@ -91,7 +91,7 @@ private:
 	void shiftWord(Word * pWord);	//使word前移一格
 	Word* pWordHead;				//指向Word的指针
 	Word* pWordTail;
-	WordIndex* index[128];			//哈希索引
+	WordIndex* index[512];			//哈希索引
 public:
 	WordList();
 	~WordList();

@@ -1,6 +1,14 @@
-characters:36
-words:3
-lines:2
-<asdf000d> 1
-<dews3d> 1
-<love123we> 1
+characters:2230216
+words:231145
+lines:16509
+<that> 4960
+<says> 4474
+<with> 2135
+<have> 2130
+<they> 2063
+<from> 2028
+<this> 1669
+<more> 1312
+<their> 1268
+<which> 1195
+<could> 1023
